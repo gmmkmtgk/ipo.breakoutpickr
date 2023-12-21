@@ -1,7 +1,7 @@
 // IPOCalculator.js
 import React, { useState, useEffect } from "react";
 
-const IPOIPOCalculator = () => {
+const IPOCalculator = () => {
   const [lotSize, setLotSize] = useState("");
   const [pricePerStock, setPricePerStock] = useState("");
   const [amountToApply, setAmountToApply] = useState("");
@@ -18,20 +18,24 @@ const IPOIPOCalculator = () => {
       !isNaN(pricePerStockValue) &&
       !isNaN(amountToApplyValue)
     ) {
-      const calculatedLotSizeToApply =
-        (Math.floor(
-          (amountToApplyValue * 100000) / (pricePerStockValue * lotSizeValue)
-        ) +
-          1) *
-        lotSizeValue;
-      setLotSizeToApply(calculatedLotSizeToApply);
+      const divisionResult =
+        (amountToApplyValue * 100000) / (pricePerStockValue * lotSizeValue);
+
+      // Check if the division result is not an integer
+      const isNotInteger = divisionResult % 1 !== 0;
+
+      const calculatedLotSizeToApply = isNotInteger
+        ? Math.floor(divisionResult) + 1
+        : Math.floor(divisionResult);
+
+      setLotSizeToApply(calculatedLotSizeToApply * lotSizeValue);
     } else {
       setLotSizeToApply(null);
     }
   }, [lotSize, pricePerStock, amountToApply]);
 
   return (
-    <div>
+    <div className="container">
       <h2>IPO Shares to Apply Calculator</h2>
       <label>
         Lot Size :
@@ -43,7 +47,7 @@ const IPOIPOCalculator = () => {
       </label>
       <br />
       <label>
-        IPO Price : 
+        IPO Price :
         <input
           type="number"
           value={pricePerStock}
@@ -60,13 +64,13 @@ const IPOIPOCalculator = () => {
         />
       </label>
       <br />
-      {lotSizeToApply !== null && (
+      {
         <p>
-          Number of Stocks to Apply: <strong>{lotSizeToApply}</strong>
+          Number of Stocks to Apply:<strong>{lotSizeToApply}</strong>
         </p>
-      )}
+      }
     </div>
   );
 };
 
-export default IPOIPOCalculator;
+export default IPOCalculator;

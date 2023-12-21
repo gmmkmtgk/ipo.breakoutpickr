@@ -3,7 +3,7 @@ import React from "react";
 const IPOWebsite = () => {
   const iframeStyle = {
     width: "100%",
-    height: "31rem", // Adjust the height as needed
+    height: "40rem", // Adjust the height as needed
     border: "none", // To remove iframe border
   };
 
