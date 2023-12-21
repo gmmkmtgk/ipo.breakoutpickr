@@ -12,6 +12,7 @@ const Calculator = () => {
     try {
       // Replace "^" with "**" for correct exponentiation in JavaScript
       const expression = input.replace(/\^/g, "**");
+      // eslint-disable-next-line no-eval
       setResult(eval(expression).toString());
     } catch (error) {
       setResult("Error");
