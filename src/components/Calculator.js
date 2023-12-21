@@ -10,7 +10,9 @@ const Calculator = () => {
 
   const handleCalculate = () => {
     try {
-      setResult(eval(input).toString());
+      // Replace "^" with "**" for correct exponentiation in JavaScript
+      const expression = input.replace(/\^/g, "**");
+      setResult(eval(expression).toString());
     } catch (error) {
       setResult("Error");
     }
@@ -21,9 +23,13 @@ const Calculator = () => {
     setResult("");
   };
 
+  const handleInputChange = (event) => {
+    setInput(event.target.value);
+  };
+
   return (
     <div>
-      <input type="text" value={input} readOnly />
+      <input type="text" value={input} onChange={handleInputChange} />
       <br />
       <button onClick={() => handleButtonClick("1")}>1</button>
       <button onClick={() => handleButtonClick("2")}>2</button>
