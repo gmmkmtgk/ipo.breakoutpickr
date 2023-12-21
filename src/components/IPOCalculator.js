@@ -1,46 +1,49 @@
-// Calculator.js
+// IPOCalculator.js
 import React, { useState, useEffect } from "react";
 
-const Calculator = () => {
-  const [numberOfStocks, setNumberOfStocks] = useState("");
+const IPOIPOCalculator = () => {
+  const [lotSize, setLotSize] = useState("");
   const [pricePerStock, setPricePerStock] = useState("");
   const [amountToApply, setAmountToApply] = useState("");
-  const [numberOfStocksToApply, setNumberOfStocksToApply] = useState(null);
+  const [lotSizeToApply, setLotSizeToApply] = useState(null);
 
   useEffect(() => {
     // Calculate in real time when inputs change
-    const numberOfStocksValue = parseFloat(numberOfStocks);
+    const lotSizeValue = parseFloat(lotSize);
     const pricePerStockValue = parseFloat(pricePerStock);
     const amountToApplyValue = parseFloat(amountToApply);
 
     if (
-      !isNaN(numberOfStocksValue) &&
+      !isNaN(lotSizeValue) &&
       !isNaN(pricePerStockValue) &&
       !isNaN(amountToApplyValue)
     ) {
-      const calculatedNumberOfStocksToApply =
-        Math.floor(amountToApplyValue / pricePerStockValue) *
-        numberOfStocksValue;
-      setNumberOfStocksToApply(calculatedNumberOfStocksToApply);
+      const calculatedLotSizeToApply =
+        (Math.floor(
+          (amountToApplyValue * 100000) / (pricePerStockValue * lotSizeValue)
+        ) +
+          1) *
+        lotSizeValue;
+      setLotSizeToApply(calculatedLotSizeToApply);
     } else {
-      setNumberOfStocksToApply(null);
+      setLotSizeToApply(null);
     }
-  }, [numberOfStocks, pricePerStock, amountToApply]);
+  }, [lotSize, pricePerStock, amountToApply]);
 
   return (
     <div>
-      <h2>Apply Calculator</h2>
+      <h2>IPO Shares to Apply Calculator</h2>
       <label>
-        Number of Stocks in Each Lot:
+        Lot Size :
         <input
           type="number"
-          value={numberOfStocks}
-          onChange={(e) => setNumberOfStocks(e.target.value)}
+          value={lotSize}
+          onChange={(e) => setLotSize(e.target.value)}
         />
       </label>
       <br />
       <label>
-        Price Per Stock :
+        IPO Price : 
         <input
           type="number"
           value={pricePerStock}
@@ -49,7 +52,7 @@ const Calculator = () => {
       </label>
       <br />
       <label>
-        Amount You Want to Apply :
+        Amount (in lakhs) :
         <input
           type="number"
           value={amountToApply}
@@ -57,13 +60,13 @@ const Calculator = () => {
         />
       </label>
       <br />
-      {numberOfStocksToApply !== null && (
+      {lotSizeToApply !== null && (
         <p>
-          Number of Stocks to Apply: <strong>{numberOfStocksToApply}</strong>
+          Number of Stocks to Apply: <strong>{lotSizeToApply}</strong>
         </p>
       )}
     </div>
   );
 };
 
-export default Calculator;
+export default IPOIPOCalculator;

@@ -13,7 +13,7 @@ body {
 }
 
 /* Apply 50% width to each component */
-.Calculator,
+.IPOCalculator,
 .IPOWebsite {
   flex: 1;
 }
