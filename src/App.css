@@ -1,0 +1,19 @@
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+}
+
+/* Apply 50% width to each component */
+.Calculator,
+.IPOWebsite {
+  flex: 1;
+}
