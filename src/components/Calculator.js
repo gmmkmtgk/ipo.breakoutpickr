@@ -14,7 +14,17 @@ const Calculator = () => {
 // Replace "^" with "**" for correct exponentiation in JavaScript
       const expression = input.replace(/\^/g, "**");
 // eslint-disable-next-line no-eval
-      setResult(eval(expression).toString());
+const calculatedResult = eval(expression);
+
+// Check if the result is a decimal
+const isDecimal = calculatedResult % 1 !== 0;
+
+// Round to 2 decimal places if it's a decimal, otherwise, display as integer
+const roundedResult = isDecimal
+  ? calculatedResult.toFixed(2)
+  : calculatedResult.toString();
+
+setResult(roundedResult);
     } catch (error) {
       setResult("Error");
     }
