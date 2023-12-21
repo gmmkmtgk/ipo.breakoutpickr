@@ -10,10 +10,7 @@ const Calculator = () => {
 
   const handleCalculate = () => {
     try {
-      // Split the input into an array based on the "^" character
-      const [base, exponent] = input.split("^");
-      // Use Math.pow to perform exponentiation
-      setResult(Math.pow(parseFloat(base), parseFloat(exponent)).toString());
+      setResult(eval(input).toString());
     } catch (error) {
       setResult("Error");
     }
@@ -49,6 +46,8 @@ const Calculator = () => {
       <button onClick={() => handleButtonClick("/")}>/</button>
       <br />
       <button onClick={() => handleButtonClick("^")}>^</button>
+      <button onClick={() => handleButtonClick("(")}>(</button>
+      <button onClick={() => handleButtonClick(")")}>)</button>
       <div>Result: {result}</div>
     </div>
   );
