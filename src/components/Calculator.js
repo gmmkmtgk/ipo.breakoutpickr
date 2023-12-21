@@ -24,7 +24,12 @@ const Calculator = () => {
   };
 
   const handleInputChange = (event) => {
-    setInput(event.target.value);
+    // Trigger calculation when Enter key is pressed
+    if (event.key === "Enter") {
+      handleCalculate();
+    } else {
+      setInput(event.target.value);
+    }
   };
 
   const handleDecimal = () => {
@@ -36,7 +41,12 @@ const Calculator = () => {
 
   return (
     <div>
-      <input type="text" value={input} onChange={handleInputChange} />
+      <input
+        type="text"
+        value={input}
+        onChange={handleInputChange}
+        onKeyPress={handleInputChange}
+      />
       <br />
       <button onClick={() => handleButtonClick("1")}>1</button>
       <button onClick={() => handleButtonClick("2")}>2</button>
