@@ -27,6 +27,13 @@ const Calculator = () => {
     setInput(event.target.value);
   };
 
+  const handleDecimal = () => {
+    // Check if the last character is not already a decimal point
+    if (!input.endsWith(".")) {
+      setInput((prevInput) => prevInput + ".");
+    }
+  };
+
   return (
     <div>
       <input type="text" value={input} onChange={handleInputChange} />
@@ -47,6 +54,7 @@ const Calculator = () => {
       <button onClick={() => handleButtonClick("*")}>*</button>
       <br />
       <button onClick={() => handleButtonClick("0")}>0</button>
+      <button onClick={handleDecimal}>.</button>
       <button onClick={handleClear}>C</button>
       <button onClick={handleCalculate}>=</button>
       <button onClick={() => handleButtonClick("/")}>/</button>
