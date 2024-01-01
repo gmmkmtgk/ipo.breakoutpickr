@@ -86,7 +86,7 @@ const IPOCalculator = () => {
 
       {
         <p>
-          Number of Stocks to Apply:<strong>{lotSizeToApply}</strong>
+          <u>Number of Stocks to Apply:</u> <strong>{lotSizeToApply}</strong>
         </p>
       }
     </div>
