@@ -10,6 +10,9 @@ function App() {
     <div id='root'>
       <div className='IPOCalculator'>
         <IPOCalculator />
+        <u>
+          <h4>Calculator for any other calculation:</h4>
+        </u>
         <Calculator />
       </div>
       <div className='IPOWebsite'>
