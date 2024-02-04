@@ -12,8 +12,20 @@ body {
   width: 100%;
 }
 
-/* Apply 50% width to each component */
-.IPOCalculator,
+.IPOCalculator {
+  flex: 0.5; 
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 .IPOWebsite {
-  flex: 1;
+  flex: 0.5; 
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.Footer {
+  margin-top: auto;
+  order: 999; /* Make sure the footer comes last */
+  display: flex;
 }
