@@ -10,22 +10,27 @@ body {
 #root {
   display: flex;
   width: 100%;
+  flex-direction: column;
 }
 
-.IPOCalculator {
-  flex: 0.5; 
-  margin-top: 5%;
-  margin-bottom: 5%;
+.app-container {
+  display: flex;
+  width: 100%;
 }
 
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.IPOCalculator,
 .IPOWebsite {
-  flex: 0.5; 
+  flex: 0.5;
   margin-top: 5%;
   margin-bottom: 5%;
 }
 
 .Footer {
   margin-top: auto;
-  order: 999; /* Make sure the footer comes last */
   display: flex;
 }

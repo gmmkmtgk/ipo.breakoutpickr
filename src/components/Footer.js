@@ -1,81 +1,34 @@
-import React from 'react'
+import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer
-      style={{
-        backgroundColor: '#333',
-        color: 'white',
-        padding: '2rem',
-        textAlign: 'center',
-        marginTop: '2rem', // Add margin at the top to separate from the content
-      }}
-    >
+    <footer className="footer">
       <div>
         <h2>Contact Us</h2>
-        <p>Email: info@breakoutpickr.com</p>
-        <p>Phone: +1 (555) 123-4567</p>
+        <p>Email: breakoutpickr@gmail.com</p>
+        <p>Phone: +91 </p>
       </div>
       <div>
         <h2>Quick Links</h2>
-        <ul style={{ listStyleType: 'none', padding: 0 }}>
+        <ul>
           <li>
-            <a
-              href='/policy'
-              style={{
-                color: 'white',
-                textDecoration: 'none',
-                margin: '0.5rem',
-              }}
-            >
-              Privacy Policy
-            </a>
+            <a href='/policy'>Privacy Policy</a>
           </li>
           <li>
-            <a
-              href='/terms'
-              style={{
-                color: 'white',
-                textDecoration: 'none',
-                margin: '0.5rem',
-              }}
-            >
-              Terms of Service
-            </a>
+            <a href='/terms'>Terms of Service</a>
           </li>
         </ul>
       </div>
       <div>
         <h2>Subscribe to Our Newsletter</h2>
-        <form
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <input
-            type='email'
-            placeholder='Your Email'
-            style={{ margin: '0.5rem', padding: '0.5rem', borderRadius: '5px' }}
-          />
-          <button
-            type='submit'
-            style={{
-              backgroundColor: '#4CAF50',
-              color: 'white',
-              padding: '0.5rem 1rem',
-              borderRadius: '5px',
-              border: 'none',
-              cursor: 'pointer',
-            }}
-          >
-            Subscribe
-          </button>
+        <form>
+          <input type='email' placeholder='Your Email' />
+          <button type='submit'>Subscribe</button>
         </form>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
