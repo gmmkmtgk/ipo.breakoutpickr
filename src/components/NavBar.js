@@ -1,10 +1,21 @@
 // Navbar.js
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
+import Modal from './Modal' // Import the Modal component
 
 const Navbar = () => {
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const openModal = () => {
+    setModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+  }
+
   return (
     <nav className='navbar'>
       <Link to='/' className='navbar-brand'>
@@ -12,16 +23,18 @@ const Navbar = () => {
       </Link>
       <ul className='navbar-links'>
         <li>
-          <Link to='/page1' className='navbar-link subscribe-link'>
+          {/* Use a button instead of Link to trigger the modal */}
+          <button className='navbar-link subscribe-link' onClick={openModal}>
             Subscribe for Latest IPO Details
-          </Link>
+          </button>
         </li>
-        <li>
+        {/* <li>
           <Link to='/page2' className='navbar-link login-link'>
             Login
           </Link>
-        </li>
+        </li> */}
       </ul>
+      {modalOpen && <Modal onClose={closeModal} />}{' '}
     </nav>
   )
 }

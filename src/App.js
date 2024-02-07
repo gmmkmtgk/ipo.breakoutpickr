@@ -11,17 +11,19 @@ function App() {
   return (
     <>
       <Navbar />
-      <div id='root' className='app-container'>
-        <div className='row'>
-          <div className='IPOCalculator'>
-            <IPOCalculator />
-            <u>
-              <h4>Calculator for any other calculation:</h4>
-            </u>
-            <Calculator />
-          </div>
-          <div className='IPOWebsite'>
-            <IPOWebsite />
+      <div style={{ marginLeft: '.5rem' }}>
+        <div id='root' className='app-container'>
+          <div className='row'>
+            <div className='IPOCalculator'>
+              <IPOCalculator />
+              <u>
+                <h4>Calculator for any other calculation:</h4>
+              </u>
+              <Calculator />
+            </div>
+            <div className='IPOWebsite'>
+              <IPOWebsite />
+            </div>
           </div>
         </div>
       </div>
