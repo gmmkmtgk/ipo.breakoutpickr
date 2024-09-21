@@ -1,5 +1,6 @@
 // IPOCalculator.js
 import React, { useState, useEffect } from 'react'
+import './IPOCalculator.css'
 
 const IPOCalculator = () => {
   const [lotSize, setLotSize] = useState('')
@@ -7,6 +8,8 @@ const IPOCalculator = () => {
 
   const [amountToApply, setAmountToApply] = useState('10')
   const [lotSizeToApply, setLotSizeToApply] = useState(null)
+
+  const [toggled, setToggled] = useState(false)
 
   useEffect(() => {
     // Calculate in real time when inputs change
@@ -42,23 +45,30 @@ const IPOCalculator = () => {
   return (
     <div className='container'>
       <h2>IPO Shares to Apply Calculator</h2>
-      <label>
+      {toggled ? <label>
         Lot Size :
         <input
           type='number'
           value={lotSize}
           onChange={e => setLotSize(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        IPO Price :
-        <input
-          type='number'
-          value={pricePerStock}
-          onChange={e => setPricePerStock(e.target.value)}
-        />
-      </label>
+      </label> :
+        <label>
+          IPO Price :
+          <input
+            type='number'
+            value={pricePerStock}
+            onChange={e => setPricePerStock(e.target.value)}
+          />
+        </label>}
+      <div className="toggle-area">
+        <button className={`toggle-btn ${toggled ? "toggled" : ""}`} onClick={() => {
+          setToggled(!toggled)
+        }}>
+          <div className="thumb"></div>
+        </button>
+        <div className="toggle-area-text">{toggled?<span>Switch to IPO Price</span>:<span>Switch to Lot Size</span>}</div>
+      </div>
       <br />
       <label>
         Amount (in lakhs) :
