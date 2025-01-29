@@ -11,7 +11,7 @@ const Modal = ({ onClose }) => {
           &times;
         </span>
         <iframe
-          src='https://breakoutpickr.substack.com/embed'
+          src='https://breakoutpicker.substack.com/embed'
           width='480'
           height='320'
           frameBorder='0'

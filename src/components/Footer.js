@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className='footer'>
       <div>
         <h2>Contact Us</h2>
-        <p>Email: breakoutpickr@gmail.com</p>
+        <p>Email: breakoutpicker@gmail.com</p>
         <p>Phone: +91 8233249989</p>
       </div>
       <div>
@@ -23,7 +23,7 @@ const Footer = () => {
       <div>
         <h2>Subscribe to Our Newsletter</h2>
         <iframe
-          src='https://breakoutpickr.substack.com/embed'
+          src='https://breakoutpicker.substack.com/embed'
           width='480'
           height='150'
           frameborder='0'

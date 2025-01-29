@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className='navbar'>
       <Link to='/' className='navbar-brand'>
-        <h1>IPO Breakoutpickr</h1>
+        <h1>IPO Breakout Picker</h1>
       </Link>
       <ul className='navbar-links'>
         <li>
